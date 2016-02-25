@@ -138,6 +138,19 @@
 		<junit_version>4.10</junit_version>
 		<easymock_version>3.0</easymock_version>
 		<jmockit_version>0.999.8</jmockit_version>
+
+		<!--rest-->
+		<rs-api_version>2.0.1</rs-api_version>
+		<resteasy-jaxrs_version>3.0.9.Final</resteasy-jaxrs_version>
+		<resteasy-client_version>3.0.16.Final</resteasy-client_version>
+		<resteasy-netty_version>3.0.14.Final</resteasy-netty_version>
+		<resteasy-jdk-http_version>3.0.14.Final</resteasy-jdk-http_version>
+		<resteasy-jackson-provider_version>3.0.14.Final</resteasy-jackson-provider_version>
+		<resteasy-jaxb-provider_version>3.0.16.Final</resteasy-jaxb-provider_version>
+		<kryo_version>2.24.0</kryo_version>
+		<kryo-serializers_version>0.37</kryo-serializers_version>
+		<fst_version>2.44</fst_version>
+
 		<!-- Build args -->
 		<!--<argline>-server -Xms64m -Xmx64m -XX:PermSize=64m -XX:MaxPermSize=64m</argline> -->
 		<skip_maven_deploy>false</skip_maven_deploy>
@@ -428,42 +441,40 @@
                 <artifactId>tomcat-embed-logging-juli</artifactId>
                 <version>${tomcat_embed_version}</version>
             </dependency>
-
-            <!-- TODO move versions into properties -->
             <dependency>
                 <groupId>javax.ws.rs</groupId>
                 <artifactId>javax.ws.rs-api</artifactId>
-                <version>2.0</version>
+                <version>${rs-api_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxrs</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jaxrs_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-client</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jaxrs_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-netty</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-netty_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jdk-http</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jdk-http_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jackson-provider</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jackson-provider_version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jboss.resteasy</groupId>
                 <artifactId>resteasy-jaxb-provider</artifactId>
-                <version>3.0.7.Final</version>
+                <version>${resteasy-jaxb-provider_version}</version>
             </dependency>
             <dependency>
                 <groupId>com.esotericsoftware.kryo</groupId>
@@ -473,12 +484,12 @@
             <dependency>
                 <groupId>de.javakaffee</groupId>
                 <artifactId>kryo-serializers</artifactId>
-                <version>0.26</version>
+                <version>${kryo-serializers_version}</version>
             </dependency>
             <dependency>
                 <groupId>de.ruedigermoeller</groupId>
                 <artifactId>fst</artifactId>
-                <version>1.55</version>
+                <version>${fst_version}</version>
             </dependency>
 		</dependencies>
 	</dependencyManagement>
