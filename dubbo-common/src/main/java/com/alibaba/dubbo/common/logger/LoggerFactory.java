@@ -57,7 +57,7 @@ public class LoggerFactory {
             setLoggerAdapter(new JdkLoggerAdapter());
         } else {
             try {
-                setLoggerAdapter(new Log4j2LoggerAdapter());
+                setLoggerAdapter(new Log4j2LoggerAdapter());//默认日志类改成log4j2（杨俊明）
             } catch (Throwable e1) {
                 try {
                     setLoggerAdapter(new Slf4jLoggerAdapter());

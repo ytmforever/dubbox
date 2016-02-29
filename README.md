@@ -70,6 +70,9 @@ Dubbox adds features like RESTful remoting, Kyro/FST serialization, etc to the p
     * 修正Dubbo管理界面中没有consumer时出现空指针异常（马金凯）
     * 修正@Reference annotation中protocol设置不起作用的bug（沈理）
     * 修正@Reference annotation放在setter方法上即会出错的bug（Dylan）
+* **dubbox-2.8.4a：
+    * 升级spring到4.x,其它一些依赖组件也一并进行了版本升级(杨俊明)
+    * 增加log4j2支持,原来一些硬编码依赖log4j的代码,改为依赖slf4j,以便兼容其它一些主流日志组件(杨俊明)
 
 ## 依赖
 
