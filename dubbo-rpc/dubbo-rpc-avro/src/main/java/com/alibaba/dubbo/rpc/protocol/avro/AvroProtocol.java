@@ -14,7 +14,7 @@ import org.apache.avro.ipc.reflect.ReflectResponder;
 import java.net.InetSocketAddress;
 
 /**
- * 为dubbo-rpc添加"原生thrift"支持
+ * 为dubbo-rpc添加avro支持
  * by 杨俊明(http://yjmyzz.cnblogs.com/)
  */
 public class AvroProtocol extends AbstractProxyProtocol {
