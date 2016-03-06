@@ -319,6 +319,32 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-rpc-thrift2</artifactId>
+            <version>${project.parent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.thrift</groupId>
+                    <artifactId>libthrift</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-rpc-avro</artifactId>
+            <version>${project.parent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>avro</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>avro-ipc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -382,6 +408,7 @@
                                     <include>com.alibaba:dubbo-remoting-http</include>
                                     <include>com.alibaba:dubbo-remoting-zookeeper</include>
                                     <include>com.alibaba:dubbo-rpc-api</include>
+                                    <include>com.alibaba:dubbo-rpc-avro</include>
                                     <include>com.alibaba:dubbo-rpc-default</include>
                                     <include>com.alibaba:dubbo-rpc-injvm</include>
                                     <include>com.alibaba:dubbo-rpc-rmi</include>
@@ -389,6 +416,7 @@
                                     <include>com.alibaba:dubbo-rpc-http</include>
                                     <include>com.alibaba:dubbo-rpc-webservice</include>
                                     <include>com.alibaba:dubbo-rpc-thrift</include>
+                                    <include>com.alibaba:dubbo-rpc-thrift2</include>
                                     <include>com.alibaba:dubbo-rpc-memcached</include>
                                     <include>com.alibaba:dubbo-rpc-redis</include>
                                     <include>com.alibaba:dubbo-rpc-rest</include>
