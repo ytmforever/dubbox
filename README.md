@@ -32,7 +32,7 @@ Dubbox adds features like RESTful remoting, Kyro/FST serialization, etc to the p
 
 * **修正了dubbo的bug** 包括配置、序列化、管理界面等等的bug。
 
-* **支持原生thrift、avro等跨语言的rpc框架**(2.8.4a版开始支持)，只是非java语言的client调用dubbo的thrift/avro服务时，非java语言的service consumer无法享受dubbo的治理功能
+* **支持原生thrift、avro等跨语言的rpc框架**(2.8.4a版开始支持)，只是非java语言的client调用dubbo的thrift/avro服务时，consumer无法享受dubbo的治理功能
 
 **注：dubbox和dubbo 2.x是兼容的，没有改变dubbo的任何已有的功能和配置方式（除了升级了spring之类的版本）**
 
