@@ -101,7 +101,7 @@
 		<sorcerer_version>0.8</sorcerer_version>
 		<zookeeper_version>3.4.6</zookeeper_version>
 		<!--<zkclient_version>0.1</zkclient_version>-->
-		<zkclient_version>0.8.1</zkclient_version>
+		<zkclient_version>0.8</zkclient_version>
 		<curator_version>2.5.0</curator_version>
 		<jedis_version>2.1.0</jedis_version>
 		<xmemcached_version>1.3.6</xmemcached_version>
@@ -114,15 +114,18 @@
 		<hessian_version>4.0.7</hessian_version>
 		<servlet_version>3.1.0</servlet_version>
 		<jetty_version>6.1.26</jetty_version>
-		<validation_version>1.0.0.GA</validation_version>
+		<validation_version>1.1.0.Final</validation_version>
 		<!--<hibernate_validator_version>4.2.0.Final</hibernate_validator_version>-->
 		<hibernate_validator_version>5.2.4.Final</hibernate_validator_version>
+		<javax.el-api_version>2.2.4</javax.el-api_version>
+		<javax.el_version>2.2.4</javax.el_version>
+		<velocity_version>1.7</velocity_version>
 		<jcache_version>0.4</jcache_version>
 		<sca_version>2.0-M5.1</sca_version>
 		<guice_version>3.0</guice_version>
 		<cglib_version>2.2</cglib_version>
 		<!--<webx_version>3.0.8</webx_version>-->
-		<webx_version>3.0.8</webx_version>
+		<webx_version>3.1.6</webx_version>
         <!--<jackson_version>2.3.3</jackson_version>-->
 		<jackson_version>2.7.1</jackson_version>
 
@@ -341,9 +344,24 @@
 				<version>${hibernate_validator_version}</version>
 			</dependency>
 			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>javax.el-api</artifactId>
+				<version>${javax.el-api_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.web</groupId>
+				<artifactId>javax.el</artifactId>
+				<version>${javax.el_version}</version>
+			</dependency>
+			<dependency>
 				<groupId>javax.cache</groupId>
 				<artifactId>cache-api</artifactId>
 				<version>${jcache_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+				<version>${velocity_version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.tuscany.sca</groupId>
