@@ -158,12 +158,30 @@ public class NetUtils {
                 && ! LOCALHOST.equals(name) 
                 && IP_PATTERN.matcher(name).matches());
     }
-    
+
     public static String getLocalHost(){
+
+        String localHostByEnv = getLocalHostFromEnv();
+        if(!isEmpty(localHostByEnv)){
+            return localHostByEnv;
+        }
         InetAddress address = getLocalAddress();
         return address == null ? LOCALHOST : address.getHostAddress();
     }
-    
+    public static String getLocalHostFromEnv(){
+
+        final String envHostIp = "dubbo_env_host_ip";
+        String envHost = System.getenv(envHostIp);
+        if(isEmpty(envHost)){
+            envHost = System.getProperty(envHostIp);
+        }
+        return envHost;
+    }
+    private static boolean isEmpty(String s){
+        return s == null || s.isEmpty();
+    }
+
+
     public static String filterLocalHost(String host) {
         if (host == null || host.length() == 0) {
             return host;

@@ -65,7 +65,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
         if (! group.startsWith(Constants.PATH_SEPARATOR)) {
             group = Constants.PATH_SEPARATOR + group;
         }
-        this.root = group;
+        this.root = getRoot(url);
         zkClient = zookeeperTransporter.connect(url);
         zkClient.addStateListener(new StateListener() {
             public void stateChanged(int state) {
@@ -79,7 +79,36 @@ public class ZookeeperRegistry extends FailbackRegistry {
             }
         });
     }
-
+    private String getRoot(URL url ){
+        String group = url.getParameter(Constants.GROUP_KEY, "");
+        if(isEmpty(group)){
+            group = safeString(getRootFromEnv());
+        }
+        if(isEmpty(group)){
+            group = DEFAULT_ROOT;
+        }
+        if (! group.startsWith(Constants.PATH_SEPARATOR)) {
+            group = Constants.PATH_SEPARATOR + group;
+        }
+        return group;
+    }
+    public static String getRootFromEnv(){
+        final String envRoot = "dubbo_env_group_root";
+        String envHost = System.getenv(envRoot);
+        if(envHost == null || envHost.isEmpty()){
+            envHost = System.getProperty(envRoot);
+        }
+        return envHost;
+    }
+    public static String safeString(String src){
+        if(src == null){
+            return "";
+        }
+        return src;
+    }
+    public static boolean isEmpty(String src){
+        return src == null || src.isEmpty();
+    }
     public boolean isAvailable() {
         return zkClient.isConnected();
     }

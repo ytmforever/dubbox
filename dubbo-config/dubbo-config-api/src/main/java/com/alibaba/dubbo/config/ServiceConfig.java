@@ -300,7 +300,10 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (NetUtils.isInvalidLocalHost(host)) {
             anyhost = true;
             try {
-                host = InetAddress.getLocalHost().getHostAddress();
+                host = NetUtils.getLocalHostFromEnv();
+                if(host == null || host.isEmpty()) {
+                    host = InetAddress.getLocalHost().getHostAddress();
+                }
             } catch (UnknownHostException e) {
                 logger.warn(e.getMessage(), e);
             }
