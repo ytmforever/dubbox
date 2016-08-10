@@ -35,6 +35,11 @@ public class KryoObjectOutput implements ObjectOutput, Cleanable {
         output = new Output(outputStream);
     }
 
+    public KryoObjectOutput(OutputStream outputStream, Kryo kryo) {
+        this(outputStream);
+        this.kryo = kryo;
+    }
+
     public void writeBool(boolean v) throws IOException {
         output.writeBoolean(v);
     }

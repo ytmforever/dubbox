@@ -37,6 +37,11 @@ public class KryoObjectInput implements ObjectInput, Cleanable {
         input = new Input(inputStream);
     }
 
+    public KryoObjectInput(InputStream inputStream, Kryo kryo) {
+        this(inputStream);
+        this.kryo = kryo;
+    }
+
     public boolean readBool() throws IOException {
         try {
             return input.readBoolean();
