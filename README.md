@@ -146,14 +146,14 @@ Dubbox adds features like RESTful remoting, Kyro/FST serialization, etc to the p
 
 ```xml
 <dependency>
-    <groupId>com.esotericsoftware.kryo</groupId>
+    <groupId>com.esotericsoftware</groupId>
     <artifactId>kryo</artifactId>
-    <version>2.24.0</version>
+    <version>3.0.3</version>
 </dependency>
 <dependency>
     <groupId>de.javakaffee</groupId>
     <artifactId>kryo-serializers</artifactId>
-    <version>0.26</version>
+    <version>0.38</version>
 </dependency>
 ```
 

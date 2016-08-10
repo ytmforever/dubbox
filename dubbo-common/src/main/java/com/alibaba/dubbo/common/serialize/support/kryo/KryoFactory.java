@@ -15,11 +15,6 @@
  */
 package com.alibaba.dubbo.common.serialize.support.kryo;
 
-import com.alibaba.dubbo.common.serialize.support.SerializableClassRegistry;
-import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.serializers.DefaultSerializers;
-import de.javakaffee.kryoserializers.*;
-
 import java.lang.reflect.InvocationHandler;
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -29,13 +24,19 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
+import com.alibaba.dubbo.common.serialize.support.SerializableClassRegistry;
+import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.serializers.DefaultSerializers;
+
+import de.javakaffee.kryoserializers.*;
+
 /**
  * @author lishen
  */
 public abstract class KryoFactory {
 
-//    private static final KryoFactory factory = new PrototypeKryoFactory();
-//    private static final KryoFactory factory = new SingletonKryoFactory();
+    // private static final KryoFactory factory = new PrototypeKryoFactory();
+    // private static final KryoFactory factory = new SingletonKryoFactory();
     private static final KryoFactory factory = new PooledKryoFactory();
 
     private final Set<Class> registrations = new LinkedHashSet<Class>();
@@ -46,7 +47,7 @@ public abstract class KryoFactory {
 
     protected KryoFactory() {
         // TODO configurable
-//        Log.DEBUG();
+        // Log.DEBUG();
     }
 
     public static KryoFactory getDefaultFactory() {
@@ -56,7 +57,7 @@ public abstract class KryoFactory {
     /**
      * only supposed to be called at startup time
      *
-     *  later may consider adding support for custom serializer, custom id, etc
+     * later may consider adding support for custom serializer, custom id, etc
      */
     public void registerClass(Class clazz) {
 
@@ -70,11 +71,14 @@ public abstract class KryoFactory {
         if (!kryoCreated) {
             kryoCreated = true;
         }
-
         Kryo kryo = new CompatibleKryo();
+        registerAdditionalSerializer(kryo);
+        return kryo;
+    }
 
+    public void registerAdditionalSerializer(final Kryo kryo) {
         // TODO
-//        kryo.setReferences(false);
+        // kryo.setReferences(false);
         kryo.setRegistrationRequired(registrationRequired);
 
         kryo.register(Arrays.asList("").getClass(), new ArraysAsListSerializer());
@@ -122,8 +126,6 @@ public abstract class KryoFactory {
         for (Class clazz : SerializableClassRegistry.getRegisteredClasses()) {
             kryo.register(clazz);
         }
-
-        return kryo;
     }
 
     public void returnKryo(Kryo kryo) {
